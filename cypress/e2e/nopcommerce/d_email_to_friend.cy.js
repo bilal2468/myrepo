@@ -1,12 +1,24 @@
-describe('nop commerce', () =>{
+import SignUp from "./PageObjects/SignUp";
+import SignIn from "./PageObjects/SignIn";
+import EmailtoFriend from "./PageObjects/EmailtoFriend";
 
-    it('Email to Friend', () => {
-        cy.login("bilalnadeem11@gmail.com", "bilal2468")
-        cy.visit('https://demo.nopcommerce.com/apple-macbook-pro-13-inch')
-        cy.contains('button', 'Email a friend').click()
-        cy.get('.friend-email').type('bilal.nadeem@devsinc.com')
-        cy.get('#PersonalMessage').type('It is very good product')
-        cy.contains('button', 'Send email').click()
-    })
+describe("nop commerce", () => {
+  before(() => {
+    const signup = new SignUp();
+    signup.visit();
+    const signin = new SignIn();
+    signin.setLogIn();
+    signin.Email("bilalnadeem11@gmail.com");
+    signin.Password("bilal2468");
+    signin.LogIn();
+  });
 
-})
+  it("Email to Friend", () => {
+    const myFriend = new EmailtoFriend();
+    myFriend.visit();
+    myFriend.selectFriend();
+    myFriend.friendEmail("bilal.nadeem@devsinc.com");
+    myFriend.personalMessage("It is very good product");
+    myFriend.sendEmail();
+  });
+});

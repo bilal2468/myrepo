@@ -1,22 +1,32 @@
-describe('nop commerce', () => {
+import SignUp from "./PageObjects/SignUp";
+import SignIn from "./PageObjects/SignIn";
+import AddtoCart from "./PageObjects/AddtoCart";
 
-    beforeEach(() => {
-        cy.login("bilalnadeem11@gmail.com", "bilal2468")
-      })
+describe("nop commerce", () => {
+  beforeEach(() => {
+    const signup = new SignUp();
+    signup.visit();
+    const signin = new SignIn();
+    signin.setLogIn();
+    signin.Email("bilalnadeem11@gmail.com");
+    signin.Password("bilal2468");
+    signin.LogIn();
+  });
 
-    it('Search Product', () =>{
-        cy.get('[placeholder="Search store"]').type('MacBook{enter}')
-    })
+  it("Search Product", () => {
+    const searchproduct = new AddtoCart();
+    searchproduct.searchProduct();
+  });
 
-    it('Add to Cart', () => {
-        cy.get('[data-productid="4"]').click()
-        cy.get('.product-review-links').children().eq(0).click()
-        cy.go('back')
-        cy.contains('button', 'Add to wishlist').click()
-        cy.get('#product_enteredQuantity_4').clear().type('4')
-        cy.wait(5000)
-        cy.get('#add-to-cart-button-4').click()
-        cy.wait(5000)
-    })
-
-  })
+  it("Add to Cart", () => {
+    const cart = new AddtoCart();
+    cart.selectProduct();
+    cart.viewReviews();
+    cy.go("back");
+    cart.addToWishlist();
+    cart.enterQuantity("4");
+    cy.wait(5000);
+    cart.addToCart();
+    cy.wait(5000);
+  });
+});

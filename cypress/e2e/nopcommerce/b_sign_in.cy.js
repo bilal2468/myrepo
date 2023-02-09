@@ -1,7 +1,14 @@
-  describe('nop commerce', () => {
+import SignUp from "./PageObjects/SignUp";
+import SignIn from "./PageObjects/SignIn";
 
-        it('Sign In', () => {
-            cy.login("bilalnadeem11@gmail.com", "bilal2468")
-        })
-    
-      })
+describe("nop commerce", () => {
+  it("Sign In", () => {
+    const signup = new SignUp();
+    signup.visit();
+    const signin = new SignIn();
+    signin.setLogIn();
+    signin.Email("bilalnadeem11@gmail.com");
+    signin.Password("bilal2468");
+    signin.LogIn();
+  });
+});

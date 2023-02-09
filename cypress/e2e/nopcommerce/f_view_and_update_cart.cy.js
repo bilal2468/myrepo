@@ -1,20 +1,29 @@
-describe('nop commerce', () =>{
+import SignUp from "./PageObjects/SignUp";
+import SignIn from "./PageObjects/SignIn";
+import ViewandUpdateCart from "./PageObjects/ViewandUpdateCart";
 
-    beforeEach(() => {
-        cy.login("bilalnadeem11@gmail.com", "bilal2468")
-      })
+describe("nop commerce", () => {
+  beforeEach(() => {
+    const signup = new SignUp();
+    signup.visit();
+    const signin = new SignIn();
+    signin.setLogIn();
+    signin.Email("bilalnadeem11@gmail.com");
+    signin.Password("bilal2468");
+    signin.LogIn();
+  });
 
-    it('View Wishlist', ()=>{
-        cy.get('.wishlist-label').click()
-        cy.wait(3000)
-    })
+  it("View Wishlist", () => {
+    const wishlist = new ViewandUpdateCart();
+    wishlist.viewWishlist();
+    cy.wait(3000);
+  });
 
-    it('View and Update Shopping Cart', ()=>{
-        cy.get('.cart-label').click()
-        cy.get('.qty-input').clear().type('5')
-        cy.contains('button', 'Update shopping cart').click()
-        cy.wait(5000)
-        cy.contains('button', 'Continue shopping').click()
-    })
-
-})
+  it("View and Update Shopping Cart", () => {
+    const cart = new ViewandUpdateCart();
+    cart.Label();
+    cart.inputQuantity("5");
+    cart.updateCart();
+    cart.continueShopping();
+  });
+});

@@ -1,15 +1,28 @@
-describe('nop commerce', () =>{
+import SignUp from "./PageObjects/SignUp";
+import SignIn from "./PageObjects/SignIn";
+import AddVote from "./PageObjects/AddVote";
 
-    it('Add Vote', ()=>{
-        cy.login("bilalnadeem11@gmail.com", "bilal2468")
-        cy.get('#pollanswers-2').click()
-        cy.contains('button', 'Vote').click()
-        cy.wait(4000)
-    })
+describe("nop commerce", () => {
+  before(() => {
+    const signup = new SignUp();
+    signup.visit();
+    const signin = new SignIn();
+    signin.setLogIn();
+    signin.Email("bilalnadeem11@gmail.com");
+    signin.Password("bilal2468");
+    signin.LogIn();
+  });
 
-    it('View Blog', ()=>{
-        cy.visit('https://demo.nopcommerce.com/')
-        cy.contains('a', 'Blog').click()
-    })
+  it("Add Vote", () => {
+    const vote = new AddVote();
+    vote.Poll();
+    vote.addVote();
+  });
 
-})
+  it("View Blog", () => {
+    const signup = new SignUp();
+    signup.visit();
+    const blog = new AddVote();
+    blog.viewBlog();
+  });
+});

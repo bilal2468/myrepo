@@ -1,18 +1,30 @@
-describe('nop commerce', () =>{
+import SignUp from "./PageObjects/SignUp";
+import SignIn from "./PageObjects/SignIn";
+import AddNewAddress from "./PageObjects/AddNewAddress";
 
-    it('Add new Address', ()=>{
-        cy.login("bilalnadeem11@gmail.com", "bilal2468")
-        cy.contains('a', 'Addresses').click()
-        cy.contains('button', 'Add new').click()
-        cy.get('#Address_FirstName').type('Bilal')
-        cy.get('#Address_LastName').type('Nadeem')
-        cy.get('#Address_Email').type('bilalnadeem102@gmail.com')
-        cy.get('#Address_City').type('Lahore')
-        cy.get('#Address_Address1').type('hello world')
-        cy.get('#Address_ZipPostalCode').type('77886')
-        cy.get('#Address_PhoneNumber').type('99999999999')
-        cy.get('#Address_CountryId').select('Pakistan').should('have.value', '150')
-        cy.contains('button', 'Save').click()
-    })
+describe("nop commerce", () => {
+  before(() => {
+    const signup = new SignUp();
+    signup.visit();
+    const signin = new SignIn();
+    signin.setLogIn();
+    signin.Email("bilalnadeem11@gmail.com");
+    signin.Password("bilal2468");
+    signin.LogIn();
+  });
 
-})
+  it("Add new Address", () => {
+    const Address = new AddNewAddress();
+    Address.viewAddresses();
+    Address.addNew();
+    Address.addFirstName("Bilal");
+    Address.addLastName("Nadeem");
+    Address.addEmail("bilalnadeem102@gmail.com");
+    Address.addCity("Lahore");
+    Address.addAddress("DHA Phase 5");
+    Address.addZipCode("77886");
+    Address.addPhoneNumber("99999999999");
+    Address.addId("Pakistan");
+    Address.Save();
+  });
+});

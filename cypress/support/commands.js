@@ -11,13 +11,13 @@
 //
 // -- This is a parent command --
 
-Cypress.Commands.add('login', (email, password) => { 
-    cy.visit('https://demo.nopcommerce.com/')
-    cy.contains('a','Log in').click()
-    cy.get('.email').type('bilalnadeem11@gmail.com')
-    cy.get('#Password').type('bilal2468')
-    cy.contains('button', 'Log in').click()
- })
+Cypress.Commands.add("login", (email, password) => {
+  cy.visit("https://demo.nopcommerce.com/");
+  cy.contains("a", "Log in").click();
+  cy.get(".email").type("bilalnadeem11@gmail.com");
+  cy.get("#Password").type("bilal2468");
+  cy.contains("button", "Log in").click();
+});
 
 //
 //
