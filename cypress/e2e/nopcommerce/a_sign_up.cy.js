@@ -1,15 +1,16 @@
 import SignUp from "./PageObjects/SignUp";
+import data from "../../fixtures/data.json";
 
 describe("nop commerce", () => {
   it("Sign Up", () => {
     const signup = new SignUp();
     signup.visit();
     signup.myAccount();
-    signup.fillFirstName("Bilal");
-    signup.fillLastName("Nadeem");
-    signup.fillEmail("bilalnadeem11@gmail.com");
-    signup.fillPassword("bilal2468");
-    signup.fillConfirmPassword("bilal2468");
+    signup.fillFirstName(data.firstName);
+    signup.fillLastName(data.lastName);
+    signup.fillEmail(data.email);
+    signup.fillPassword(data.password);
+    signup.fillConfirmPassword(data.confirmPassword);
     signup.Register();
   });
 });

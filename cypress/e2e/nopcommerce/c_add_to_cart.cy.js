@@ -1,6 +1,7 @@
 import SignUp from "./PageObjects/SignUp";
 import SignIn from "./PageObjects/SignIn";
 import AddtoCart from "./PageObjects/AddtoCart";
+import data from "../../fixtures/data.json";
 
 describe("nop commerce", () => {
   beforeEach(() => {
@@ -8,8 +9,8 @@ describe("nop commerce", () => {
     signup.visit();
     const signin = new SignIn();
     signin.setLogIn();
-    signin.Email("bilalnadeem11@gmail.com");
-    signin.Password("bilal2468");
+    signin.Email(data.email);
+    signin.Password(data.password);
     signin.LogIn();
   });
 
@@ -24,7 +25,7 @@ describe("nop commerce", () => {
     cart.viewReviews();
     cy.go("back");
     cart.addToWishlist();
-    cart.enterQuantity("4");
+    cart.enterQuantity(data.cartQuantity);
     cy.wait(5000);
     cart.addToCart();
     cy.wait(5000);

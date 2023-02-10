@@ -1,6 +1,7 @@
 import SignUp from "./PageObjects/SignUp";
 import SignIn from "./PageObjects/SignIn";
 import AddNewAddress from "./PageObjects/AddNewAddress";
+import data from "../../fixtures/data.json";
 
 describe("nop commerce", () => {
   before(() => {
@@ -8,8 +9,8 @@ describe("nop commerce", () => {
     signup.visit();
     const signin = new SignIn();
     signin.setLogIn();
-    signin.Email("bilalnadeem11@gmail.com");
-    signin.Password("bilal2468");
+    signin.Email(data.email);
+    signin.Password(data.password);
     signin.LogIn();
   });
 
@@ -17,14 +18,14 @@ describe("nop commerce", () => {
     const Address = new AddNewAddress();
     Address.viewAddresses();
     Address.addNew();
-    Address.addFirstName("Bilal");
-    Address.addLastName("Nadeem");
-    Address.addEmail("bilalnadeem102@gmail.com");
-    Address.addCity("Lahore");
-    Address.addAddress("DHA Phase 5");
-    Address.addZipCode("77886");
-    Address.addPhoneNumber("99999999999");
-    Address.addId("Pakistan");
+    Address.addFirstName(data.firstName);
+    Address.addLastName(data.lastName);
+    Address.addEmail(data.addressEmail);
+    Address.addCity(data.addressCity);
+    Address.addAddress(data.addressAddress1);
+    Address.addZipCode(data.addressZipCode);
+    Address.addPhoneNumber(data.addressPhone);
+    Address.addId(data.addressId);
     Address.Save();
   });
 });
