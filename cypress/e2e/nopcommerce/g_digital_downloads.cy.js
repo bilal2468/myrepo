@@ -7,5 +7,6 @@ describe("nop commerce", () => {
     digiDownloads.selectDigital();
     digiDownloads.selectMode();
     digiDownloads.Select();
+    cy.contains('a', 'Download sample').should('be.visible').and('exist')
   });
 });

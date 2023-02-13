@@ -39,6 +39,9 @@ class SignUp {
   Register() {
     const register = cy.get(selectors.signUp.register);
     register.click();
+  }
+
+  Continue(){
     const cont = cy.contains("a", "Continue");
     cont.click();
   }

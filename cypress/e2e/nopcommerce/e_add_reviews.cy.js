@@ -9,9 +9,11 @@ describe("nop commerce", () => {
     signup.visit();
     const signin = new SignIn();
     signin.setLogIn();
+    cy.url().should('include', 'demo.nopcommerce')
     signin.Email(data.email);
     signin.Password(data.password);
     signin.LogIn();
+    cy.contains('a', 'Log out').should('be.visible').and('exist')
   });
 
   it("Add Reviews", () => {
@@ -22,5 +24,6 @@ describe("nop commerce", () => {
     review.reviewText(data.reviewText);
     review.Rating();
     review.Submit();
+    // cy.get('.poll-display-text').should('have.text', 'Do you like nopCommerce?').and('be.visible')
   });
 });

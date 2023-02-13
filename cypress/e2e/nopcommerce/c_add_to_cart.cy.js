@@ -9,14 +9,17 @@ describe("nop commerce", () => {
     signup.visit();
     const signin = new SignIn();
     signin.setLogIn();
+    cy.url().should('include', 'demo.nopcommerce')
     signin.Email(data.email);
     signin.Password(data.password);
     signin.LogIn();
+    cy.contains('a', 'Log out').should('be.visible').and('exist')
   });
 
   it("Search Product", () => {
     const searchproduct = new AddtoCart();
     searchproduct.searchProduct();
+    cy.contains('h1', 'Search').should('be.visible')
   });
 
   it("Add to Cart", () => {
@@ -26,8 +29,10 @@ describe("nop commerce", () => {
     cy.go("back");
     cart.addToWishlist();
     cart.enterQuantity(data.cartQuantity);
-    cy.wait(5000);
+    // cy.wait(3000);
+    cy.contains('p', 'The product has been added to your ').should('be.visible').and('exist')
     cart.addToCart();
-    cy.wait(5000);
+    cy.wait(2000);
+    cy.contains('p', 'The product has been added to your ').should('be.visible').and('exist')
   });
 });

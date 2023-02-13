@@ -9,9 +9,11 @@ describe("nop commerce", () => {
     signup.visit();
     const signin = new SignIn();
     signin.setLogIn();
+    cy.url().should('include', 'demo.nopcommerce')
     signin.Email(data.email);
     signin.Password(data.password);
     signin.LogIn();
+    cy.contains('a', 'Log out').should('be.visible').and('exist')
   });
 
   it("Contact Us", () => {
@@ -19,5 +21,6 @@ describe("nop commerce", () => {
     contact.Contact();
     contact.Enquiry(data.enquiry);
     contact.Submit();
+    cy.contains('div', 'Your enquiry has been successfully sent to the store owner.').should('be.visible').and('exist')
   });
 });

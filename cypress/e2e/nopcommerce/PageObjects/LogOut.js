@@ -4,8 +4,8 @@ import selectors from "../../../support/selectors.json";
 
 class LogOut {
   Out() {
-    const logout = cy.get(selectors.logOut.out);
-    logout.click({ force: true });
+    const logout = cy.contains('a', 'Log out')
+    logout.click()
   }
 }
 

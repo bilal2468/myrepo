@@ -1,6 +1,7 @@
 /// <reference types= "Cypress" />
 
 import selectors from "../../../support/selectors.json";
+import data from "../../../fixtures/data.json";
 
 class SignIn {
   setLogIn() {
@@ -11,11 +12,13 @@ class SignIn {
   Email(email) {
     const myEmail = cy.get(selectors.signIn.email);
     myEmail.type(email);
+    return this
   }
 
   Password(password) {
     const myPassword = cy.get(selectors.signIn.password);
     myPassword.type(password);
+    return this
   }
 
   LogIn() {

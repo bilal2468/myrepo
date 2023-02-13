@@ -9,9 +9,11 @@ describe("nop commerce", () => {
     signup.visit();
     const signin = new SignIn();
     signin.setLogIn();
+    cy.url().should('include', 'demo.nopcommerce')
     signin.Email(data.email);
     signin.Password(data.password);
     signin.LogIn();
+    cy.contains('a', 'Log out').should('be.visible').and('exist')
   });
 
   it("Add new Address", () => {
@@ -27,5 +29,6 @@ describe("nop commerce", () => {
     Address.addPhoneNumber(data.addressPhone);
     Address.addId(data.addressId);
     Address.Save();
+    cy.contains('p', 'The new address has been added successfully.').should('be.visible').and('exist')
   });
 });
