@@ -1,0 +1,67 @@
+{
+  "address": {
+    "firstName": "#Address_FirstName",
+    "lastName": "#Address_LastName",
+    "addressEmail": "#Address_Email",
+    "addressCity": "#Address_City",
+    "addressAddress1": "#Address_Address1",
+    "addressZipCode": "#Address_ZipPostalCode",
+    "addressPhoneNumber": "#Address_PhoneNumber",
+    "addressId": "#Address_CountryId"
+  },
+
+  "logOut": {
+    "out": ".ico-logout"
+  },
+
+  "vote": {
+    "addPoll": "#pollanswers-3"
+  },
+
+  "contactUs": {
+    "enquiry": "#Enquiry"
+  },
+
+  "digitalDownloads": {
+    "digital": "[data-viewmode='list']"
+  },
+
+  "viewCart": {
+    "checkWishlist": ".wishlist-label",
+    "checkCartLabel": ".cart-label",
+    "quantityInput": ".qty-input"
+  },
+
+  "signIn": {
+    "email": ".email",
+    "password": "#Password"
+  },
+
+  "cart": {
+    "search": "[placeholder='Search store']",
+    "chooseProduct": "[data-productid='4']",
+    "checkReviews": ".product-review-links",
+    "quanityEnter": "#product_enteredQuantity_4",
+    "submitCart": "#add-to-cart-button-4"
+  },
+
+  "friendEmail": {
+    "fEmail": ".friend-email",
+    "fMessage": "#PersonalMessage"
+  },
+
+  "reviews": {
+    "reviewTitle": "#AddProductReview_Title",
+    "reviewText": "#AddProductReview_ReviewText",
+    "reviewRate": "#addproductrating_4"
+  },
+
+  "signUp": {
+    "firstName": "#FirstName",
+    "lastName": "#LastName",
+    "email": "#Email",
+    "password": "#Password",
+    "confirmPassword": "#ConfirmPassword",
+    "register": "#register-button"
+  }
+}

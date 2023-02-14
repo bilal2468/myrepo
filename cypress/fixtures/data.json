@@ -1,0 +1,20 @@
+{
+    "firstName" : "Bilal",
+    "lastName" : "Nadeem", 
+    "email" : "bilalnadeem13@gmail.com",
+    "password" : "bilal2468",
+    "confirmPassword" : "bilal2468",
+    "cartQuantity" : "4",
+    "friendEmail" : "bilalnadeem103@gmail.com",
+    "friendMessage" : "It is very Good Product",
+    "reviewTitle" : "Good Product",
+    "reviewText" : "It is very good product",
+    "updateQuantity" : "5",
+    "enquiry" : "What are your processes?",
+    "addressEmail" : "bilalnadeem167@gmail.com",
+    "addressCity" : "Lahore",
+    "addressAddress1" : "DHA Phase Five",
+    "addressZipCode" : "77886",
+    "addressPhone" : "99999999999",
+    "addressId" : "Pakistan"
+}
